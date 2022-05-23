@@ -1,0 +1,4 @@
+there is no need for auth.onStatechange()
+ jsut signInWithPop(provider).then(result=>{
+        setUser(result.user); //maintain only one state.,.... redux store...
+ })
