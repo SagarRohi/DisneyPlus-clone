@@ -15,6 +15,17 @@ module.exports = {
         "banner":"url('../public/images/home-background.png')",
       }
     },
+
+    minWidth: {
+      '1/2': '45%',
+      '25':"17%",
+      "61":'61%'
+    },
+    maxWidth: {
+      '1/2': '45%',
+      '24':"5%",
+      "61":'61%'
+    }
   },
   plugins: [],
 }

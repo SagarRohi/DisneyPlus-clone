@@ -1,6 +1,6 @@
 import Header from "./Header";
 import { useState } from "react";
-import { auth } from "./firebase";
+import { auth } from "../firebase";
 const SignUp=()=>{
 
     const [name,setName]=useState();

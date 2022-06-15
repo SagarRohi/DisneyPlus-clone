@@ -1,0 +1,18 @@
+export { default as Banner } from "./Banner";
+export { default as Comedy } from "./Comedy";
+export { default as Family } from "./Family";
+export { default as Horror } from "./Horror";
+export { default as MovieCard } from "./MovieCard";
+export { default as Originals } from "./Originals";
+export { default as Popular} from "./Popular";
+export { default as Genres} from "./Genres";
+export { default as SignUp} from "./SignUp";
+export { default as Thriller} from "./Thriller";
+export { default as TopRated} from "./TopRated";
+export { default as Trending} from "./Trending";
+export { default as Upcomming} from "./Upcomming";
+export { default as Viewers} from "./Viewers";
+export { default as Header} from "./Header";
+export { default as Home} from "./Home";
+export { default as ImageSlider} from "./ImageSlider";
+export { default as Login} from "./Login";

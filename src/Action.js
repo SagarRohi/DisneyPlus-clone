@@ -1,6 +1,6 @@
 
 import { useEffect ,useState} from "react";
-import Header from "./Header";
+import {Header} from './components';
 import { Link } from "react-router-dom";
 const Action=()=>{
     const [movies,setMovies]=useState([]);

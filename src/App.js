@@ -1,13 +1,6 @@
 import {Routes,Route} from 'react-router-dom';
-import Login from './Login';
-import Home from './Home';
-import Comedy from './Comedy';
+import {Login,Home,Comedy,Horror,Thriller,Family,Banner,SignUp} from './components';
 import Action from './Action';
-import Horror from './Horror';
-import Thriller from './Thriller';
-import Family from './Family';
-import Banner from './Banner';
-import SignUp from './SignUp';
 const App=()=>{
   return <>
   <Routes>

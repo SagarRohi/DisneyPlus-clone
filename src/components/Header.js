@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { auth } from './firebase';
-import { setUser, unSetUser } from './toolkit';
+import { auth } from '../firebase';
+import { setUser, unSetUser } from '../toolkit';
 import {useNavigate,Link} from 'react-router-dom';
-import { provider } from './firebase';
+import { provider } from '../firebase';
 
 const Header=()=>{
 
@@ -34,14 +34,14 @@ const Header=()=>{
                else if(window.location.pathname!=='/signup') navigate('/');
         })
     },[])
-    console.log(userName,photoUrl);
     return <div className="fixed bg-secondary w-full px-2 lg:px-12 py-2 flex z-10 items-center">
            <img src="./images/logo.svg" alt="logo"
            className="w-24 "/>
            {userName&&<ul className="hidden lg:block  lg:flex space-x-4 text-white ml-12">
             <li className="flex space-x-1 items-center py-1">
                 <img className="w-6" src="./images/home-icon.svg" alt="icon"/>
-                <p className="uppercase text-sm tracking-wider cursor-pointer
+                <p  onClick={()=>navigate('/home')}
+                className="uppercase text-sm tracking-wider cursor-pointer
                 after:block after:border-b-2 after:scale-x-0  after:origin-left	 after:duration-200	
                 after:ease-in-out hover:after:scale-x-100 after:border-white after:-inset-1">Home</p>
             </li>
