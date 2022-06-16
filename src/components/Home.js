@@ -8,12 +8,15 @@ import Upcomming from './Upcomming';
 import Originals from './Originals';
 import Genres from './Genres';
 import { useSelector,useDispatch } from "react-redux";
-import { setMobileSearchShow } from "../toolkit"
+import { setMobileSearchShow ,setDeskTopSearchShow} from "../toolkit"
 const Home=()=>{
     const mobileSearchShow=useSelector((state)=>state.mobileSearchShow);
+    const deskTopSearchShow=useSelector((state)=>state.deskTopSearchShow);
     const dispatch=useDispatch();
+    console.log("home",deskTopSearchShow);
     return <div  onScroll={()=>{
         if(mobileSearchShow) dispatch(setMobileSearchShow(false));
+        if(deskTopSearchShow) dispatch(setDeskTopSearchShow(false));
     }} className=' w-screen h-screen bg-banner bg-no-repeat bg-cover overflow-x-hidden '>
           <Header/>
           <div className='relative top-16 mx-2 md:mx-12 z-0 '>

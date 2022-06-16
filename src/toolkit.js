@@ -5,6 +5,7 @@ const initialAuthState={
     email:"",
     photo:"",
     mobileSearchShow:false,
+    deskTopSearchShow:false,
 }
 const authSlice=createSlice({
     name:'auth',
@@ -24,10 +25,13 @@ const authSlice=createSlice({
         },
         setMobileSearchShow:(state,action)=>{
             state.mobileSearchShow=action.payload;
+        },
+        setDeskTopSearchShow:(state,action)=>{
+            state.deskTopSearchShow=action.payload;
         }
     }
 })
 
 
-export const {setUser,unSetUser,setSearchShow,setMobileSearchShow} =authSlice.actions;
+export const {setUser,unSetUser,setSearchShow,setMobileSearchShow,setDeskTopSearchShow} =authSlice.actions;
 export default authSlice.reducer;

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { auth } from '../firebase';
-import { setMobileSearchShow, setUser, unSetUser } from '../toolkit';
+import { setMobileSearchShow, setDeskTopSearchShow,setUser, unSetUser } from '../toolkit';
 import {useNavigate,Link} from 'react-router-dom';
 import { provider } from '../firebase';
 import {MdSearch} from 'react-icons/md';
@@ -13,7 +13,9 @@ const Header=()=>{
     const navigate=useNavigate();
     const dispatch=useDispatch();
     const mobileSearchShow=useSelector((state)=>state.mobileSearchShow);
+    const deskTopSearchShow=useSelector((state)=>state.deskTopSearchShow);
     const [searchShow,setSearchShow]=useState(mobileSearchShow);
+    const [showMenu,setShowMenu]=useState(false);
     const userName=useSelector((state)=>state.name);
     let photoUrl=useSelector((state)=>state.photo);
     const signInWithGoogle=()=>{
@@ -25,10 +27,14 @@ const Header=()=>{
         });
     }
 
+     useEffect(()=>{
+        if(!deskTopSearchShow) setShowResult(false);
+     },[deskTopSearchShow])
     useEffect(()=>{
         setSearchShow(mobileSearchShow);
         if(!mobileSearchShow) setShowResult(false);
     },[mobileSearchShow])
+
     const signOut=()=>{
         auth.signOut();
         dispatch(unSetUser());
@@ -116,6 +122,7 @@ const Header=()=>{
                  <input onChange={(e)=>{
                     setSearch(e.target.value);
                     searchMovie();
+                    if(!deskTopSearchShow) dispatch(setDeskTopSearchShow(true));
                  }} value={search}  type='text' className='px-2 py-1 outline-none border-none rounded-md flex-1 ' placeholder='Search' />
                  <MdSearch  className='text-3xl cursor-pointer'/>
                </div>
@@ -133,11 +140,16 @@ const Header=()=>{
                     </Link>
                     })}
                  </div>}
-               {/* <button  onClick={signOut}
-                className="ml-auto uppercase hidden lg:block text-white border-2 border-white 
+
+              <div>
+              <motion.img 
+              whileTap={{scale:0.75}}
+              onClick={()=>setShowMenu(!showMenu)} className='w-10 h-10 rounded-full relative' src={photoUrl} alt="logo"/>
+               {showMenu&&<button  onClick={signOut}
+                className="ml-auto absolute top-12 right-0 w-max  uppercase  text-white border-2 border-white 
                 px-2 md:px-6 lg:px-6 py-1 tracking-widest shadow-lg bg-slate-900
-               rounded hover:bg-white hover:text-slate-900">Log Out</button> */}
-               <img className='w-10 h-10 rounded-full ' src={photoUrl} alt="logo"/>
+               rounded hover:bg-white hover:text-slate-900">Log Out</button>}
+              </div>
             </div>:<div className='ml-auto flex gap-2 '>
             <img onClick={signInWithGoogle} src='./images/google.png' className='w-12 rounded cursor-pointer'/>
            <Link to='/signup'
