@@ -13,7 +13,6 @@ const Home=()=>{
     const mobileSearchShow=useSelector((state)=>state.mobileSearchShow);
     const deskTopSearchShow=useSelector((state)=>state.deskTopSearchShow);
     const dispatch=useDispatch();
-    console.log("home",deskTopSearchShow);
     return <div  onScroll={()=>{
         if(mobileSearchShow) dispatch(setMobileSearchShow(false));
         if(deskTopSearchShow) dispatch(setDeskTopSearchShow(false));

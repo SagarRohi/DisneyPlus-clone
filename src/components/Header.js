@@ -70,16 +70,20 @@ const Header=()=>{
         })
     },[])
 
-    const menus=["Home","watchlist","originals","movies","series"];
+    const menus=[{title:"Home",img :"./images/home-icon.svg"},
+    {title:"WatchList",img :"./images/watchlist-icon.svg"},
+    {title:"Series",img :"./images/series-icon.svg"},
+    {title:"Originals",img :"./images/original-icon.svg"},
+    {title:"Movies",img :"./images/movie-icon.svg"}];
 
 
-    const Menu=({menu})=>{
+    const Menu=({title,img})=>{
         return  <li className="flex space-x-1 items-center py-1">
-        <img className="w-6" src="./images/home-icon.svg" alt="icon"/>
+        <img className="w-6" src={img} alt="icon"/>
         <p  onClick={()=>navigate('/home')}
         className="uppercase text-sm tracking-wider cursor-pointer
         after:block after:border-b-2 after:scale-x-0  after:origin-left	 after:duration-200	
-        after:ease-in-out hover:after:scale-x-100 after:border-white after:-inset-1">{menu}</p>
+        after:ease-in-out hover:after:scale-x-100 after:border-white after:-inset-1">{title}</p>
     </li>
     }
     return <div className="fixed bg-secondary w-full px-2 lg:px-12 py-9 flex z-10 items-center h-16 ">
@@ -96,7 +100,7 @@ const Header=()=>{
            {userName&&<ul className="hidden   lg:flex space-x-4 text-white ml-12">
 
             {menus.map((menu ,id)=>{
-                return <Menu menu={menu} id={id}/>
+                return <Menu title={menu.title} img={menu.img} id={id}/>
             })}
            </ul>}
            {userName?
