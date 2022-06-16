@@ -7,11 +7,18 @@ import TopRated from './TopRated';
 import Upcomming from './Upcomming';
 import Originals from './Originals';
 import Genres from './Genres';
+import { useSelector,useDispatch } from "react-redux";
+import { setMobileSearchShow } from "../toolkit"
 const Home=()=>{
-    return <div className=' w-screen h-screen bg-banner overflow-x-hidden	'>
+    const mobileSearchShow=useSelector((state)=>state.mobileSearchShow);
+    const dispatch=useDispatch();
+    return <div  onScroll={()=>{
+        if(mobileSearchShow) dispatch(setMobileSearchShow(false));
+    }} className=' w-screen h-screen bg-banner bg-no-repeat bg-cover overflow-x-hidden '>
           <Header/>
-          <div className='relative top-16 mx-2 md:mx-12 z-0'>
+          <div className='relative top-16 mx-2 md:mx-12 z-0 '>
               <ImageSlider  />
+              {/* <ISlider/> */}
           </div>
             <div className='mt-32 mx-2 md:mx-12'>
               <Viewers/>

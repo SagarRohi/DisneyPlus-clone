@@ -1,6 +1,5 @@
 import {Routes,Route} from 'react-router-dom';
-import {Login,Home,Comedy,Horror,Thriller,Family,Banner,SignUp} from './components';
-import Action from './Action';
+import {Login,Home,Comedy,Horror,Thriller,Family,Banner,SignUp,Action} from './components';
 const App=()=>{
   return <>
   <Routes>
@@ -8,9 +7,9 @@ const App=()=>{
     <Route path='/home' element={<Home/>}/>
     <Route path='/Comedy' element={<Comedy/>}/>
     <Route path='/Action' element={<Action/>}/>
-    <Route path='/horror' element={<Horror/>}/>
-    <Route path='/thriller' element={<Thriller/>}/>
-    <Route path='/family' element={<Family/>}/>
+    <Route path='/Horror' element={<Horror/>}/>
+    <Route path='/Thriller' element={<Thriller/>}/>
+    <Route path='/Family' element={<Family/>}/>
     <Route path='/:id' element={<Banner/>}/>
     <Route path='/signup' element={<SignUp/>}/>
   </Routes>

@@ -1,7 +1,7 @@
 
 import { useEffect ,useState} from "react";
 import Header from "./Header";
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";;
 const Horror=()=>{
     const [movies,setMovies]=useState([]);
     const [page,setPage]=useState(1);
@@ -16,10 +16,10 @@ const Horror=()=>{
         <Header/>
         <div className="bg-main">
             <p className='h-24'></p>
-            <p className="uppercase mx-8  text-xl text-white font-semibold">Horror</p>
-            <div className="flex flex-wrap mx-8 my-8 justify-between gap-4">
+            <p className="uppercase mx-8   text-xl text-white font-semibold">Horror</p>
+            <div className="flex flex-wrap mx-8 my-8  justify-between gap-y-12 gap-6">
             {movies.map((movie)=>{
-                 return <div className="sm:w-1/6 w-2/5 shadow-md shadow-shadow border-gray-700  border-4 rounded cursor-pointer" >
+                 return <div className="sm:w-[12%] w-2/5 shadow-md shadow-shadow border-gray-700  border-4 rounded cursor-pointer" >
                     <Link to={`/${movie.id}`}><img src={`https://image.tmdb.org/t/p/w780${movie.poster_path}`} 
                     className='w-full h-full object-cover' alt='movie'/></Link>
                 </div>

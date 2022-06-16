@@ -4,6 +4,7 @@ const initialAuthState={
     name:"",
     email:"",
     photo:"",
+    mobileSearchShow:false,
 }
 const authSlice=createSlice({
     name:'auth',
@@ -21,9 +22,12 @@ const authSlice=createSlice({
              state.email="";
              state.photo="";
         },
+        setMobileSearchShow:(state,action)=>{
+            state.mobileSearchShow=action.payload;
+        }
     }
 })
 
 
-export const {setUser,unSetUser} =authSlice.actions;
+export const {setUser,unSetUser,setSearchShow,setMobileSearchShow} =authSlice.actions;
 export default authSlice.reducer;

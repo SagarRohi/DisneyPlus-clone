@@ -32,7 +32,6 @@ const Carousel = styled(Slider)`
   margin-top: 20px;
   & > button {
     opacity: 0;
-    height: 100%;
     width: 5vw;
     z-index: 1;
     &:hover {

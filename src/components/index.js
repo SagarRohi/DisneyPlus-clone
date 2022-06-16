@@ -16,3 +16,4 @@ export { default as Header} from "./Header";
 export { default as Home} from "./Home";
 export { default as ImageSlider} from "./ImageSlider";
 export { default as Login} from "./Login";
+export { default as Action} from "./Action";
