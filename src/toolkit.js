@@ -1,11 +1,14 @@
 import {createSlice} from '@reduxjs/toolkit';
 
+
+
 const initialAuthState={
     name:"",
     email:"",
     photo:"",
     mobileSearchShow:false,
     deskTopSearchShow:false,
+    allKindMovies:{}
 }
 const authSlice=createSlice({
     name:'auth',
@@ -28,10 +31,14 @@ const authSlice=createSlice({
         },
         setDeskTopSearchShow:(state,action)=>{
             state.deskTopSearchShow=action.payload;
+        },
+        addMovieType:(state,action)=>{
+            const {type,movies}=action.payload;
+            state.allKindMovies[type]=movies;
         }
     }
 })
 
 
-export const {setUser,unSetUser,setSearchShow,setMobileSearchShow,setDeskTopSearchShow} =authSlice.actions;
+export const {setUser,unSetUser,setSearchShow,setMobileSearchShow,setDeskTopSearchShow,addMovieType} =authSlice.actions;
 export default authSlice.reducer;

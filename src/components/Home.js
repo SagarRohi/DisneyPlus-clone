@@ -12,6 +12,7 @@ import { setMobileSearchShow ,setDeskTopSearchShow} from "../toolkit"
 const Home=()=>{
     const mobileSearchShow=useSelector((state)=>state.mobileSearchShow);
     const deskTopSearchShow=useSelector((state)=>state.deskTopSearchShow);
+    const allKindMovies=useSelector((state)=>state.allKindMovies);
     const dispatch=useDispatch();
     return <div  onScroll={()=>{
         if(mobileSearchShow) dispatch(setMobileSearchShow(false));
@@ -27,22 +28,22 @@ const Home=()=>{
            </div>
            <div className='mx-2 md:mx-8 mt-12 space-y-12'>
           <div className=' '>
-              <Trending/>
+              <Trending movies={allKindMovies["Trending"]} />
          </div>
          <div className=' '>
-             <Popular/>
+             <Popular movies={allKindMovies["Popular"]}/>
          </div>
          <div className=''>
-             <Upcomming/>
+             <Upcomming movies={allKindMovies["Upcomming"]}/>
          </div>
          <div className=''>
               <Genres/>
            </div>
          <div className=''>
-             <Originals/>
+             <Originals movies={allKindMovies["Originals"]}/>
          </div>
          <div className=''>
-             <TopRated/>
+             <TopRated movies={allKindMovies["Top_Rated"]}/>
          </div>
            </div>
     </div>

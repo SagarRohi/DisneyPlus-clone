@@ -47,13 +47,18 @@ const Banner=()=>{
       fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=7a2a30724470ebf691cd1bddcb3f08ff&language=en-US&append_to_response=videos`).then((data)=>{
         return data.json();
       }).then((data)=>{
-        if(data.success==false) setMovie(null);
+        if(data.success===false) setMovie(null);
         else setMovie(data);
       })
   },[])
   let trailer=null;
   if(movie&&movie.videos) trailer=movie?movie.videos.results.find(vid=>vid.name==='Official Trailer'||vid.name==='Teaser Trailer'):null;
-  return <>
+  if(movie===null) return <div className="h-screen w-screen bg-main flex justify-center 
+  text-white items-center">
+     <button onClick={()=>navigate(-1)} className="text-white absolute  border-2 m-1 px-4 py-1 left-1 top-1 ">Back</button>
+    <img src='/images/NotFound.jpg' className=" w-[300px] md:w-[500px] md:h-96 rounded-lg shadow-lg shadow-gray-700 " alt='hi'/>
+    </div>
+  else return <>
 
   {/*mobile View */}
   <div className="md:hidden flex flex-col overflow-y-scroll h-screen   overflow-hidden relative">
@@ -85,12 +90,12 @@ const Banner=()=>{
         </div>
         }
       </div>}
-  </div>
+  </div> 
   
 
   {/*desktop */}
 
-  <div className="hidden md:block h-screen  overflow-hidden">
+  <div className="hidden md:block h-screen  overflow-hidden"> 
       {movie&&<div movie={movie} className="h-screen flex items-center">
       <button onClick={()=>navigate(-1)} className="text-white absolute  border-2 m-1 px-4 py-1 left-1 top-1 ">Back</button>
         <img src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`} 

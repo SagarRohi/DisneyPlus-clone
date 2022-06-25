@@ -100,7 +100,7 @@ const Header=()=>{
            {userName&&<ul className="hidden   lg:flex space-x-4 text-white ml-12">
 
             {menus.map((menu ,id)=>{
-                return <Menu title={menu.title} img={menu.img} id={id}/>
+                return <Menu key={id} title={menu.title} img={menu.img} id={id}/>
             })}
            </ul>}
            {userName?

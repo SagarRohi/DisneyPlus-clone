@@ -29,7 +29,7 @@ const RowContainer = ({movies,desc}) => {
           </div>
         </div>
         <div className="flex gap-2 py-2 overflow-x-scroll  " ref={containerRef}>
-            {movies.map((movie)=><MovieCard  movie={movie} />)}
+            {movies.map((movie,id)=><MovieCard key={id} movie={movie} />)}
        </div>
     </div>
   )
